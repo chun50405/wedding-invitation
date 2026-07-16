@@ -3,11 +3,12 @@ import { content } from './content.js'
 import { doodleHeart, doodleFlower, doodleArrow, doodleRing, doodleSparkle } from './assets/doodles.js'
 
 // ---------- 依序照片素材 ----------
-// 之後把照片放進 src/assets/photos/,並在下面陣列填上檔名,例如:
-// import photo1 from './assets/photos/01.jpg'
-// const photoFiles = [photo1, photo2, ...]
 // 順序:0 封面 / 1 純照片 / 2 愛心疊圖 / 3 拱門 / 4 倒數計時旁 / 5 WELCOME 旁 / 6 日曆旁 / 7 婚禮資訊旁
-const photoFiles = []
+import photo1 from './assets/photos/01.jpg'
+import photo2 from './assets/photos/02.jpg'
+import photo3 from './assets/photos/03.jpg'
+import photo4 from './assets/photos/04.jpg'
+const photoFiles = [photo1, photo2, photo3, photo4]
 const [q1, q2, q3, q4, q5, q6, q7] = content.storyQuotes
 
 const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
