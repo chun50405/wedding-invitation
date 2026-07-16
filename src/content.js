@@ -17,31 +17,7 @@ export const content = {
 
   invitationText: '我們即將攜手步入禮堂,誠摯邀請您撥冗蒞臨,共同見證這幸福的一刻。',
 
-  // 故事時間軸,先給預留段落,之後再換上你們的真實故事
-  timeline: [
-    {
-      date: '20XX . XX',
-      title: '相識',
-      desc: '在這裡填入你們相識的故事。',
-    },
-    {
-      date: '20XX . XX',
-      title: '在一起',
-      desc: '在這裡填入告白 / 交往的故事。',
-    },
-    {
-      date: '20XX . XX',
-      title: '求婚',
-      desc: '在這裡填入求婚的故事。',
-    },
-    {
-      date: '2026 . 11',
-      title: '結婚',
-      desc: '我們決定攜手一生,邀請你一起見證。',
-    },
-  ],
-
-  // 照片輪播預留張數,之後把對應檔案放到 src/assets/photos/ 並在 main.js 的 photoFiles 陣列填上檔名即可
+  // 依序顯示的照片張數,之後把對應檔案放到 src/assets/photos/ 並在 main.js 的 photoFiles 陣列填上檔名即可
   photoPlaceholderCount: 6,
 
   // 如果沒有背景音樂檔案,把這個留空字串,播放按鈕會自動隱藏

@@ -1,8 +1,8 @@
 import './style.css'
 import { content } from './content.js'
-import { doodleHeart, doodleFlower, doodleArrow, doodleRing } from './assets/doodles.js'
+import { doodleHeart, doodleFlower, doodleArrow, doodleRing, doodleSparkle } from './assets/doodles.js'
 
-// ---------- 照片輪播素材 ----------
+// ---------- 依序照片素材 ----------
 // 之後把照片放進 src/assets/photos/,並在下面陣列填上檔名,例如:
 // import photo1 from './assets/photos/01.jpg'
 // const photoFiles = [photo1, photo2, ...]
@@ -37,18 +37,48 @@ function buildCalendarDays(year, month, highlightDay) {
   return cells.join('')
 }
 
+// ---------- 依序照片區塊的點綴輪替 ----------
+const storyDoodles = [doodleFlower, doodleHeart, doodleSparkle, doodleRing]
+const storyCorners = ['story-item__doodle--tl', 'story-item__doodle--tr', 'story-item__doodle--bl', 'story-item__doodle--br']
+
+function buildStoryItems() {
+  return Array.from({ length: photoCount })
+    .map((_, i) => {
+      const doodle = storyDoodles[i % storyDoodles.length]
+      const corner = storyCorners[i % storyCorners.length]
+      return `
+        <div class="story-item">
+          <div class="story-item__doodle ${corner}">${doodle}</div>
+          <div class="photo-frame">
+            ${
+              photoFiles[i]
+                ? `<img class="photo-frame__img" src="${photoFiles[i]}" alt="照片 ${i + 1}" />`
+                : `<div class="photo-frame__placeholder">照片 ${i + 1}</div>`
+            }
+          </div>
+        </div>`
+    })
+    .join('')
+}
+
 // ---------- 渲染頁面 ----------
 document.querySelector('#app').innerHTML = `
   <section class="hero">
     <div class="hero__doodle-top">${doodleFlower}</div>
-    <div class="photo-frame hero__photo">
-      ${
-        photoFiles[0]
-          ? `<img class="photo-frame__img" src="${photoFiles[0]}" alt="${content.groom} & ${content.bride}" />`
-          : `<div class="photo-frame__placeholder">Photo</div>`
-      }
+    <div class="hero__photo">
+      <div class="hero__doodle-ring">${doodleRing}</div>
+      <div class="photo-frame">
+        ${
+          photoFiles[0]
+            ? `<img class="photo-frame__img" src="${photoFiles[0]}" alt="${content.groom} & ${content.bride}" />`
+            : `<div class="photo-frame__placeholder">Photo</div>`
+        }
+      </div>
     </div>
-    <p class="hero__caption">We are married</p>
+    <div class="hero__caption-wrap">
+      <div class="hero__doodle-sparkle">${doodleSparkle}</div>
+      <p class="hero__caption">We are married</p>
+    </div>
     <h1 class="hero__names">${content.groom}<span class="hero__amp">&amp;</span>${content.bride}</h1>
     <p class="hero__date">${content.weddingDateDisplay}</p>
     <p class="hero__venue">${content.venue.name}・${content.venue.hall}</p>
@@ -69,63 +99,24 @@ document.querySelector('#app').innerHTML = `
   </section>
 
   <section class="invite reveal">
-    <div class="invite__ring">${doodleRing}</div>
+    <div class="invite__doodles">
+      <div class="invite__flower">${doodleFlower}</div>
+      <div class="invite__ring">${doodleRing}</div>
+    </div>
     <p class="invite__text">${content.invitationText}</p>
   </section>
 
-  <section class="timeline-section reveal">
-    <h2 class="section-title">我們的故事</h2>
-    <div class="timeline">
-      ${content.timeline
-        .map(
-          (item, i) => `
-        <div class="timeline__item ${i % 2 === 0 ? 'is-left' : 'is-right'}">
-          <div class="timeline__dot"></div>
-          <div class="timeline__card">
-            <span class="timeline__date">${item.date}</span>
-            <h3 class="timeline__title">${item.title}</h3>
-            <p class="timeline__desc">${item.desc}</p>
-          </div>
-        </div>`,
-        )
-        .join('')}
-    </div>
-  </section>
-
-  <section class="gallery-section reveal">
+  <section class="story-section reveal">
     <h2 class="section-title">我們的照片</h2>
-    <div class="gallery" id="gallery">
-      <div class="gallery__viewport">
-        <div class="gallery__track" id="galleryTrack" style="width:${photoCount * 100}%">
-          ${Array.from({ length: photoCount })
-            .map(
-              (_, i) =>
-                `<div class="gallery__slide" style="width:${100 / photoCount}%">
-                  <div class="photo-frame">
-                    ${
-                      photoFiles[i]
-                        ? `<img class="photo-frame__img" src="${photoFiles[i]}" alt="照片 ${i + 1}" />`
-                        : `<div class="photo-frame__placeholder">照片 ${i + 1}</div>`
-                    }
-                  </div>
-                </div>`,
-            )
-            .join('')}
-        </div>
-      </div>
-      <button class="gallery__nav gallery__nav--prev" id="galleryPrev" aria-label="上一張">‹</button>
-      <button class="gallery__nav gallery__nav--next" id="galleryNext" aria-label="下一張">›</button>
-      <div class="gallery__dots" id="galleryDots">
-        ${Array.from({ length: photoCount })
-          .map((_, i) => `<button class="gallery__dot${i === 0 ? ' is-active' : ''}" data-index="${i}"></button>`)
-          .join('')}
-      </div>
+    <div class="story">
+      ${buildStoryItems()}
     </div>
   </section>
 
   <section class="calendar-section reveal">
     <h2 class="section-title">倒數計時</h2>
     <div class="calendar">
+      <div class="calendar__doodle">${doodleFlower}</div>
       <p class="calendar__month">${calendarMonth + 1} / ${weddingDay}</p>
       <p class="calendar__year">- ${calendarYear} -</p>
       <div class="calendar__grid">
@@ -140,6 +131,7 @@ document.querySelector('#app').innerHTML = `
   <section class="location-section reveal">
     <h2 class="section-title">婚禮資訊</h2>
     <div class="location">
+      <div class="location__doodle">${doodleSparkle}</div>
       <div class="location__row">
         <span class="location__dot"></span>
         <div>
@@ -201,35 +193,6 @@ function updateCountdown() {
 }
 updateCountdown()
 setInterval(updateCountdown, 1000)
-
-// ---------- 照片輪播 ----------
-if (photoCount > 0) {
-  const track = document.getElementById('galleryTrack')
-  const dots = Array.from(document.querySelectorAll('.gallery__dot'))
-  let current = 0
-  let autoplayTimer = null
-
-  function goTo(index) {
-    current = (index + photoCount) % photoCount
-    track.style.transform = `translateX(-${(100 / photoCount) * current}%)`
-    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current))
-  }
-
-  document.getElementById('galleryPrev').addEventListener('click', () => goTo(current - 1))
-  document.getElementById('galleryNext').addEventListener('click', () => goTo(current + 1))
-  dots.forEach((dot) => dot.addEventListener('click', () => goTo(Number(dot.dataset.index))))
-
-  function startAutoplay() {
-    autoplayTimer = setInterval(() => goTo(current + 1), 4000)
-  }
-  function stopAutoplay() {
-    clearInterval(autoplayTimer)
-  }
-  const gallery = document.getElementById('gallery')
-  gallery.addEventListener('mouseenter', stopAutoplay)
-  gallery.addEventListener('mouseleave', startAutoplay)
-  startAutoplay()
-}
 
 // ---------- 滾動淡入動畫 ----------
 const revealObserver = new IntersectionObserver(
