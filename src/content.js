@@ -45,7 +45,7 @@ export const content = {
   photoPlaceholderCount: 6,
 
   // 如果沒有背景音樂檔案,把這個留空字串,播放按鈕會自動隱藏
-  musicSrc: '', // 例如: '/audio/bgm.mp3',
+  musicSrc: `${import.meta.env.BASE_URL}audio/bgm.mp3`,
   musicTitle: '播放音樂',
 
   // 你們的問卷連結(RSVP),留空的話按鈕會隱藏
