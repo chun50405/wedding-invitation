@@ -103,6 +103,16 @@ p {
   font-size: 24px;
 }
 
+.photo-frame__heart-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.15));
+}
+
 /* ---------- hero ---------- */
 .hero {
   min-height: 100svh;
@@ -116,57 +126,68 @@ p {
   scroll-snap-align: start;
 }
 
-.hero__doodle-top {
+.hero__mark {
   position: absolute;
-  top: 28px;
-  left: 22px;
-  width: 56px;
-  height: 56px;
-}
-
-.hero__doodle-top .doodle--flower {
-  width: 100%;
-  height: 100%;
+  top: 24px;
+  left: 24px;
+  font-family: var(--brush-zh);
+  font-size: 34px;
+  color: var(--red);
+  line-height: 1;
 }
 
 .hero__photo {
   position: relative;
   width: min(72vw, 320px);
   transform: rotate(-2deg);
-  margin-bottom: 28px;
+  margin-bottom: 8px;
 }
 
 .hero__photo .photo-frame {
   width: 100%;
 }
 
-.hero__doodle-ring {
+.hero__doodle-flower {
   position: absolute;
-  top: -18px;
-  right: -20px;
-  width: 46px;
-  height: 52px;
+  top: -20px;
+  right: -18px;
+  width: 44px;
+  height: 44px;
 }
 
-.hero__caption-wrap {
+.hero__married {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin: 20px 0 6px;
 }
 
-.hero__doodle-sparkle {
-  position: absolute;
-  top: -18px;
-  right: -34px;
-  width: 28px;
-  height: 28px;
+.hero__married-text {
+  text-align: left;
+}
+
+.hero__married-zh {
+  font-family: var(--brush-zh);
+  font-size: 36px;
+  color: var(--red);
+  line-height: 1;
+  transform: rotate(-2deg);
+}
+
+.hero__doodle-arrow {
+  width: 52px;
+  height: 42px;
+  transform: rotate(6deg);
+  margin-bottom: 2px;
 }
 
 .hero__caption {
   font-family: var(--hand-en);
-  font-size: 40px;
+  font-size: 30px;
   color: var(--red);
   transform: rotate(-2deg);
-  margin-bottom: 6px;
+  margin-top: 2px;
 }
 
 .hero__names {
@@ -198,8 +219,15 @@ p {
   color: var(--ink-soft);
 }
 
+.countdown-section {
+  padding: 60px 24px;
+  text-align: center;
+  scroll-snap-align: start;
+}
+
 .countdown {
   display: flex;
+  justify-content: center;
   gap: 14px;
   margin-top: 36px;
 }
@@ -282,6 +310,29 @@ p {
   height: 40px;
 }
 
+/* ---------- welcome ---------- */
+.welcome {
+  padding: 60px 24px 0;
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.welcome__mark {
+  font-family: var(--brush-zh);
+  font-size: 44px;
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.welcome__en {
+  font-family: var(--serif-en);
+  font-size: 20px;
+  letter-spacing: 4px;
+  color: var(--ink);
+  margin-top: 24px;
+}
+
 /* ---------- photo story (依序排列的照片) ---------- */
 .story-section {
   padding: 60px 24px;
@@ -297,7 +348,34 @@ p {
 }
 
 .story-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.photo-frame-wrap {
   position: relative;
+}
+
+.story-quote {
+  font-size: 17px;
+  line-height: 2;
+  color: var(--ink);
+  text-align: center;
+  max-width: 340px;
+}
+
+.story-item__loveyou {
+  position: absolute;
+  top: 20px;
+  right: -6px;
+  writing-mode: vertical-rl;
+  font-family: var(--hand-en);
+  font-size: 22px;
+  letter-spacing: 4px;
+  color: var(--red);
+  z-index: 1;
 }
 
 .story-item .photo-frame {
