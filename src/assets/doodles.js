@@ -31,6 +31,14 @@ export const doodleRing = `
   <path pathLength="1" d="M40 4v8M22 12l6 6M58 12l-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
 </svg>`
 
+// 大的多圈塗鴉愛心,疊在照片上用
+export const doodleBigHeart = `
+<svg viewBox="0 0 220 200" class="doodle doodle--bigheart" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path pathLength="1" d="M110 182C58 140 20 104 16 66 13 38 32 16 60 14c22-2 40 10 50 30 10-20 28-32 50-30 28 2 47 24 44 52-4 38-42 74-94 116z" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path pathLength="1" d="M106 188C52 144 12 106 10 66 8 40 28 20 54 18c24-2 44 12 54 34 8-22 30-36 54-34 26 2 46 22 44 48-2 40-44 80-100 122z" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+  <path pathLength="1" d="M114 176C64 136 30 102 26 68 23 44 40 26 62 24c20-2 36 8 46 26 10-18 26-28 46-26 22 2 39 20 36 44-3 34-38 68-76 108z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+</svg>`
+
 export const doodleSparkle = `
 <svg viewBox="0 0 40 40" class="doodle doodle--sparkle" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path pathLength="1" d="M20 2c1 8 3 14 5 16 2 2 8 4 15 5-7 1-13 3-15 5-2 2-4 8-5 16-1-8-3-14-5-16-2-2-8-4-15-5 7-1 13-3 15-5 2-2 4-8 5-16z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>

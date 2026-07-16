@@ -1,32 +1,27 @@
 import './style.css'
 import { content } from './content.js'
-import { doodleHeart, doodleFlower, doodleArrow, doodleRing, doodleSparkle } from './assets/doodles.js'
+import {
+  doodleHeart,
+  doodleBigHeart,
+  doodleFlower,
+  doodleArrow,
+  doodleRing,
+  doodleSparkle,
+} from './assets/doodles.js'
 
-// ---------- 依序照片素材 ----------
-// 順序:0 封面 / 1 純照片 / 2 愛心疊圖 / 3 拱門 / 4 倒數計時旁 / 5 WELCOME 旁 / 6 日曆旁 / 7 婚禮資訊旁
-import photo1 from './assets/photos/01.jpg'
-import photo2 from './assets/photos/02.jpg'
-import photo3 from './assets/photos/03.jpg'
-import photo4 from './assets/photos/04.jpg'
-const photoFiles = [photo1, photo2, photo3, photo4]
-const [q1, q2, q3, q4, q5, q6, q7] = content.storyQuotes
+// ---------- 照片(依頁面出現順序) ----------
+import photo1 from './assets/photos/01.jpg' // 封面:長椅合照
+import photo2 from './assets/photos/02.jpg' // 大愛心疊圖:林間小徑
+import photo3 from './assets/photos/03.jpg' // 拱窗:LOVE YOU
+import photo4 from './assets/photos/04.jpg' // 櫻花
+import photo5 from './assets/photos/05.jpg' // 插畫:拱門
+import photo6 from './assets/photos/06.jpg' // 插畫:長椅
+import photo7 from './assets/photos/07.jpg' // 頭紗特寫
+import photo8 from './assets/photos/08.jpg' // 兩張長椅:好久不見 婚禮見
 
 const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   content.venue.mapQuery,
 )}`
-
-function photoBlock(index, { doodle, corner } = {}) {
-  const inner = photoFiles[index]
-    ? `<img class="photo-frame__img" src="${photoFiles[index]}" alt="照片 ${index + 1}" />`
-    : `<div class="photo-frame__placeholder">照片 ${index + 1}</div>`
-  return `
-    <div class="story-item">
-      <div class="photo-frame-wrap">
-        ${doodle ? `<div class="story-item__doodle ${corner}">${doodle}</div>` : ''}
-        <div class="photo-frame">${inner}</div>
-      </div>
-    </div>`
-}
 
 // ---------- 日曆(結婚月份) ----------
 const weddingDate = new Date(content.weddingDateISO)
@@ -52,8 +47,95 @@ function buildCalendarDays(year, month, highlightDay) {
   return cells.join('')
 }
 
-function countdownMarkup() {
-  return `
+function photoFrame(src, alt, extra = '') {
+  return `<div class="photo-frame">
+    <img class="photo-frame__img" src="${src}" alt="${alt}" loading="lazy" />
+    ${extra}
+  </div>`
+}
+
+// ---------- 渲染頁面 ----------
+document.querySelector('#app').innerHTML = `
+  <section class="hero">
+    <p class="hero__mark">囍囍</p>
+    <p class="hero__invitation">—INVITATION</p>
+    <div class="hero__photo">
+      <div class="hero__doodle-flower">${doodleFlower}</div>
+      <div class="hero__doodle-flower2">${doodleFlower}</div>
+      ${photoFrame(photo1, `${content.groom} & ${content.bride}`)}
+    </div>
+    <div class="hero__married">
+      <div class="hero__married-text">
+        <p class="hero__married-zh">結婚啦</p>
+        <p class="hero__caption">We are married</p>
+      </div>
+      <div class="hero__doodle-arrow">${doodleArrow}</div>
+    </div>
+  </section>
+
+  <section class="intro reveal">
+    <div class="intro__body">
+      <div class="intro__main">
+        <p class="intro__date">${content.weddingDateShort}</p>
+        ${content.introLines
+          .map((line) => `<p class="intro__line">${line}</p>`)
+          .join('')}
+      </div>
+      <div class="intro__names">
+        <span>${content.groomZh}</span>
+        <span class="intro__amp">&amp;</span>
+        <span>${content.brideZh}</span>
+      </div>
+    </div>
+    <div class="intro__ring">${doodleRing}</div>
+    <p class="signature-banner">— ${content.groom} &amp; ${content.bride}</p>
+  </section>
+
+  <section class="heart-photo reveal">
+    <div class="heart-photo__wrap">
+      ${photoFrame(photo2, '林間合照')}
+      <div class="heart-photo__overlay">${doodleBigHeart}</div>
+    </div>
+    <div class="heart-photo__lines">
+      ${content.heartLines.map((l) => `<p>${l}</p>`).join('')}
+    </div>
+  </section>
+
+  <section class="arch reveal">
+    <div class="arch__banners">
+      ${content.banners.map((b, i) => `<p class="arch__banner arch__banner--${i}">${b}</p>`).join('')}
+    </div>
+    <div class="photo-frame-wrap">
+      <div class="story-item__doodle story-item__doodle--tl">${doodleFlower}</div>
+      <div class="story-item__loveyou">LOVE&nbsp;&nbsp;YOU</div>
+      ${photoFrame(photo3, '拱窗合照')}
+    </div>
+    <div class="love-doodle">
+      <span class="love-doodle__text">LOVE</span>
+      <span class="love-doodle__hearts">${doodleHeart}${doodleHeart}</span>
+    </div>
+  </section>
+
+  <section class="blossom reveal">
+    <div class="photo-frame-wrap">
+      <div class="story-item__doodle story-item__doodle--br">${doodleFlower}</div>
+      ${photoFrame(photo4, '櫻花合照')}
+    </div>
+    <div class="bullets">
+      ${content.bulletLines
+        .map(
+          (b) => `
+        <div class="bullets__row bullets__row--${b.align}">
+          <span class="bullets__dot"></span>
+          <div>
+            <p>${b.text}</p>
+            ${b.sub ? `<p>${b.sub}</p>` : ''}
+          </div>
+        </div>`,
+        )
+        .join('')}
+    </div>
+    <div class="bullets__arrow">${doodleArrow}</div>
     <div class="countdown" id="countdown">
       ${['days', 'hours', 'minutes', 'seconds']
         .map(
@@ -66,117 +148,29 @@ function countdownMarkup() {
         </div>`,
         )
         .join('')}
-    </div>`
-}
+    </div>
+  </section>
 
-// ---------- 渲染頁面 ----------
-document.querySelector('#app').innerHTML = `
-  <section class="hero">
-    <p class="hero__mark">囍</p>
-    <div class="hero__photo">
-      <div class="hero__doodle-flower">${doodleFlower}</div>
-      <div class="photo-frame">
-        ${
-          photoFiles[0]
-            ? `<img class="photo-frame__img" src="${photoFiles[0]}" alt="${content.groom} & ${content.bride}" />`
-            : `<div class="photo-frame__placeholder">Photo</div>`
-        }
+  <section class="illust reveal">
+    ${photoFrame(photo5, '婚禮插畫')}
+    <p class="handwritten">歡迎參加<br /><span class="handwritten__indent">我們的婚禮</span></p>
+    <div class="welcome-lines">
+      ${content.welcomeLines.map((l) => `<p>${l}</p>`).join('')}
+    </div>
+    <div class="welcome-banner">
+      <p class="welcome-banner__mark">囍囍</p>
+      <div class="welcome-banner__en">
+        <p>WELCOME TO</p>
+        <p>OUR WEDDING</p>
       </div>
     </div>
-    <div class="hero__married">
-      <div class="hero__married-text">
-        <p class="hero__married-zh">結婚啦</p>
-        <p class="hero__caption">We are married</p>
-      </div>
-      <div class="hero__doodle-arrow">${doodleArrow}</div>
-    </div>
-    <h1 class="hero__names">${content.groom}<span class="hero__amp">&amp;</span>${content.bride}</h1>
-    <p class="hero__date">${content.weddingDateDisplay}</p>
-    <p class="hero__venue">${content.venue.name}・${content.venue.hall}</p>
-    <div class="hero__scroll">▾ 往下滑動</div>
-  </section>
-
-  <section class="invite reveal">
-    <div class="invite__doodles">
-      <div class="invite__flower">${doodleFlower}</div>
-      <div class="invite__ring">${doodleRing}</div>
-    </div>
-    <p class="invite__text">${content.invitationText}</p>
-    <p class="invite__text">${q1}</p>
-    <p class="invite__text">${q2}</p>
-  </section>
-
-  <section class="story-section reveal">
-    <div class="story">
-      ${photoBlock(1)}
-    </div>
-  </section>
-
-  <section class="story-section reveal">
-    <div class="story">
-      <div class="story-item">
-        <p class="story-quote">${q3}</p>
-        <div class="photo-frame-wrap">
-          <div class="photo-frame">
-            ${
-              photoFiles[2]
-                ? `<img class="photo-frame__img" src="${photoFiles[2]}" alt="照片 3" />`
-                : `<div class="photo-frame__placeholder">照片 3</div>`
-            }
-            <div class="photo-frame__heart-overlay">${doodleHeart}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="story-section reveal">
-    <div class="story">
-      <div class="story-item">
-        <p class="story-quote">${q4}</p>
-        <div class="photo-frame-wrap">
-          <div class="story-item__loveyou">LOVE YOU</div>
-          <div class="story-item__doodle story-item__doodle--br">${doodleFlower}</div>
-          <div class="photo-frame">
-            ${
-              photoFiles[3]
-                ? `<img class="photo-frame__img" src="${photoFiles[3]}" alt="照片 4" />`
-                : `<div class="photo-frame__placeholder">照片 4</div>`
-            }
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="countdown-section reveal">
-    <p class="story-quote">${q5}</p>
-    ${countdownMarkup()}
-  </section>
-
-  <section class="story-section reveal">
-    <div class="story">
-      ${photoBlock(4, { doodle: doodleSparkle, corner: 'story-item__doodle--tr' })}
-    </div>
-  </section>
-
-  <section class="welcome reveal">
-    <p class="story-quote">${q6}</p>
-    <p class="welcome__mark">囍囍</p>
-    <p class="welcome__en">WELCOME TO OUR WEDDING</p>
-  </section>
-
-  <section class="story-section reveal">
-    <div class="story">
-      ${photoBlock(5, { doodle: doodleSparkle, corner: 'story-item__doodle--tl' })}
-    </div>
+    ${photoFrame(photo6, '婚禮插畫')}
   </section>
 
   <section class="calendar-section reveal">
-    <h2 class="section-title">倒數計時</h2>
     <div class="calendar">
       <div class="calendar__doodle">${doodleFlower}</div>
-      <p class="calendar__month">${calendarMonth + 1} / ${weddingDay}</p>
+      <p class="calendar__month">${calendarMonth + 1} <span>/ ${weddingDay}</span></p>
       <p class="calendar__year">- ${calendarYear} -</p>
       <div class="calendar__grid">
         ${['一', '二', '三', '四', '五', '六', '日']
@@ -185,63 +179,68 @@ document.querySelector('#app').innerHTML = `
         ${buildCalendarDays(calendarYear, calendarMonth, weddingDay)}
       </div>
     </div>
-  </section>
-
-  <section class="story-section reveal">
-    <div class="story">
-      ${photoBlock(6, { doodle: doodleRing, corner: 'story-item__doodle--tr' })}
+    <div class="calendar__photo">
+      ${photoFrame(photo7, '頭紗特寫')}
     </div>
   </section>
 
   <section class="location-section reveal">
-    <h2 class="section-title">婚禮資訊</h2>
+    <div class="location__mark">
+      <p class="location__xi">囍</p>
+      <div class="location__hearts">${doodleHeart}${doodleHeart}${doodleHeart}</div>
+    </div>
     <div class="location">
-      <div class="location__doodle">${doodleSparkle}</div>
       <div class="location__row">
         <span class="location__dot"></span>
         <div>
-          <p class="location__label">婚禮時間</p>
+          <p class="location__label">婚禮時間 /</p>
           <p class="location__value">${content.weddingDateDisplay}</p>
         </div>
       </div>
       <div class="location__row">
         <span class="location__dot"></span>
         <div>
-          <p class="location__label">婚禮地點</p>
-          <p class="location__value">${content.venue.name}・${content.venue.hall}</p>
+          <p class="location__label">婚禮地點 /</p>
           <p class="location__value">${content.venue.address}</p>
         </div>
       </div>
-      <p class="story-quote">${q7}</p>
-      <div class="location__quote">${doodleArrow}</div>
       <a class="location__link" href="${mapUrl}" target="_blank" rel="noopener">在 Google 地圖開啟</a>
+    </div>
+    <div class="location__ring">${doodleRing}</div>
+  </section>
+
+  <section class="farewell reveal">
+    <div class="photo-frame-wrap">
+      <div class="story-item__doodle story-item__doodle--tr">${doodleSparkle}</div>
+      ${photoFrame(photo8, '兩張長椅合照')}
+    </div>
+    <p class="handwritten handwritten--slant">好久不見<br /><span class="handwritten__indent">婚禮見</span></p>
+  </section>
+
+  <section class="closing reveal">
+    <div class="closing__hearts">
+      ${[0, 1, 2, 3].map((i) => `<span class="closing__heart closing__heart--${i}">${doodleHeart}</span>`).join('')}
+    </div>
+    <div class="closing__lines">
+      ${content.closingLines
+        .map((l) => (l ? `<p>${l}</p>` : '<p class="closing__gap"></p>'))
+        .join('')}
     </div>
   </section>
 
-  <section class="story-section reveal">
-    <div class="story">
-      ${photoBlock(7, { doodle: doodleFlower, corner: 'story-item__doodle--bl' })}
-    </div>
-  </section>
+  <footer class="footer">
+    <p class="footer__mark">囍囍</p>
+    <p class="footer__names">${content.groom} &amp; ${content.bride}</p>
+    <p class="footer__sub">感謝您撥冗參加我們的婚禮</p>
+  </footer>
 
   ${
     content.rsvpUrl
       ? `<section class="rsvp-section reveal">
-          <h2 class="section-title">賓客回覆</h2>
           <a class="rsvp__button" href="${content.rsvpUrl}" target="_blank" rel="noopener">填寫回覆表單</a>
         </section>`
       : ''
   }
-
-  <section class="closing reveal">
-    <p class="story-quote">${content.closingQuote}</p>
-  </section>
-
-  <footer class="footer">
-    <p class="footer__mark">囍</p>
-    <p class="footer__names">${content.groom} &amp; ${content.bride}</p>
-    <p class="footer__sub">感謝您撥冗參加我們的婚禮</p>
-  </footer>
 
   ${
     content.musicSrc
@@ -282,6 +281,7 @@ const revealObserver = new IntersectionObserver(
   },
   { threshold: 0.15 },
 )
+document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el))
 
 // ---------- 塗鴉描邊動畫(滑到眼前才畫出來) ----------
 const doodleObserver = new IntersectionObserver(
@@ -296,7 +296,6 @@ const doodleObserver = new IntersectionObserver(
   { threshold: 0.4 },
 )
 document.querySelectorAll('.doodle').forEach((el) => doodleObserver.observe(el))
-document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el))
 
 // ---------- 背景音樂 ----------
 const musicToggle = document.getElementById('musicToggle')
