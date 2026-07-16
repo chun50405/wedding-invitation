@@ -282,6 +282,20 @@ const revealObserver = new IntersectionObserver(
   },
   { threshold: 0.15 },
 )
+
+// ---------- 塗鴉描邊動畫(滑到眼前才畫出來) ----------
+const doodleObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-drawn')
+        doodleObserver.unobserve(entry.target)
+      }
+    })
+  },
+  { threshold: 0.4 },
+)
+document.querySelectorAll('.doodle').forEach((el) => doodleObserver.observe(el))
 document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el))
 
 // ---------- 背景音樂 ----------
