@@ -11,7 +11,7 @@ export const content = {
   venue: {
     name: '典華旗艦館・大直',
     hall: '3F 光影廳',
-    address: '請填入完整地址', // TODO: 填入正確地址
+    address: '10466 臺北市中山區成功里植福路8號',
     mapQuery: '典華旗艦館 大直', // 用於 Google 地圖搜尋連結,若地址填好可換成地址
   },
 
