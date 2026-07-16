@@ -12,6 +12,7 @@
   --serif-zh: 'Noto Serif TC', serif;
   --serif-en: 'Cormorant Garamond', serif;
   --brush-zh: 'Ma Shan Zheng', cursive;
+  --scrawl-zh: 'Long Cang', 'Ma Shan Zheng', cursive;
   --hand-en: 'Caveat', cursive;
 
   color-scheme: light;
@@ -159,6 +160,29 @@ section {
   z-index: 1;
 }
 
+.arch__heart-solid {
+  position: absolute;
+  top: 22%;
+  left: -22px;
+  width: 56px;
+  height: 50px;
+  z-index: 1;
+}
+
+.arch__heart-solid .doodle {
+  color: #d63a5f;
+  transform: rotate(-12deg);
+}
+
+.arch__bouquet {
+  position: absolute;
+  bottom: -60px;
+  right: -20px;
+  width: 150px;
+  height: 182px;
+  z-index: 1;
+}
+
 /* ---------- hero(封面) ---------- */
 .hero {
   min-height: 100svh;
@@ -223,8 +247,8 @@ section {
 }
 
 .hero__married-zh {
-  font-family: var(--brush-zh);
-  font-size: 52px;
+  font-family: var(--scrawl-zh);
+  font-size: 58px;
   color: var(--red);
   line-height: 1.1;
   transform: rotate(-3deg);
@@ -239,10 +263,14 @@ section {
 }
 
 .hero__doodle-arrow {
-  width: 58px;
-  height: 46px;
-  transform: rotate(-100deg) scaleX(-1);
-  margin-bottom: 14px;
+  width: 84px;
+  height: 100px;
+  margin-bottom: 4px;
+}
+
+.hero__doodle-arrow .doodle--arrow-up {
+  width: 100%;
+  height: 100%;
 }
 
 /* ---------- intro(日期+介紹+直式名字) ---------- */
@@ -319,6 +347,22 @@ section {
   padding: 8px 22px;
 }
 
+/* ---------- reddress(不早不晚 剛好是你) ---------- */
+.reddress {
+  padding: 40px 26px 90px;
+}
+
+.reddress__couple {
+  width: 220px;
+  margin: 10px 0 20px 20px;
+}
+
+.reddress__couple .doodle--couple {
+  width: 100%;
+  height: auto;
+  color: var(--ink);
+}
+
 /* ---------- heart photo(大愛心疊圖) ---------- */
 .heart-photo {
   padding: 60px 22px 90px;
@@ -347,8 +391,21 @@ section {
   transition-duration: 2s;
 }
 
+.heart-photo__garland {
+  position: absolute;
+  bottom: -50px;
+  right: 6%;
+  width: 62%;
+}
+
+.heart-photo__garland .doodle--garland {
+  width: 100%;
+  height: auto;
+  color: #e5a92e;
+}
+
 .heart-photo__lines {
-  margin-top: 56px;
+  margin-top: 84px;
   text-align: center;
   font-size: 18px;
   line-height: 2.4;
@@ -381,33 +438,64 @@ section {
 
 .love-doodle {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-top: 48px;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 56px;
   padding-left: 12px;
 }
 
 .love-doodle__text {
   font-family: var(--hand-en);
-  font-size: 52px;
-  color: var(--red);
-  transform: rotate(-8deg);
+  font-size: 56px;
+  color: #d63a5f;
+  transform: rotate(-10deg);
+  line-height: 1;
+}
+
+.love-doodle__small-hearts {
+  display: flex;
+  gap: 8px;
+  padding-top: 34px;
+}
+
+.love-doodle__small-hearts .doodle {
+  color: #d63a5f;
+}
+
+.love-doodle__small-hearts .doodle:nth-child(1) {
+  width: 20px;
+  height: 18px;
+}
+
+.love-doodle__small-hearts .doodle:nth-child(2) {
+  width: 26px;
+  height: 23px;
+  margin-top: -12px;
+}
+
+.love-doodle__small-hearts .doodle:nth-child(3) {
+  width: 16px;
+  height: 14px;
 }
 
 .love-doodle__hearts {
   display: flex;
-  gap: 10px;
+  gap: 6px;
+  padding-top: 40px;
 }
 
 .love-doodle__hearts .doodle {
-  width: 44px;
-  height: 40px;
+  width: 74px;
+  height: 66px;
+  color: #d63a5f;
+  transform: rotate(-6deg);
 }
 
 .love-doodle__hearts .doodle:last-child {
-  width: 30px;
-  height: 27px;
-  align-self: flex-start;
+  width: 56px;
+  height: 50px;
+  margin-top: -10px;
+  transform: rotate(8deg);
 }
 
 /* ---------- blossom(櫻花+條列+倒數) ---------- */
@@ -444,10 +532,14 @@ section {
 }
 
 .bullets__arrow {
-  width: 64px;
-  height: 52px;
-  margin: 30px 30px 30px auto;
-  transform: rotate(50deg);
+  width: 72px;
+  height: 96px;
+  margin: 24px 40px 24px auto;
+}
+
+.bullets__arrow .doodle--arrow-down {
+  width: 100%;
+  height: 100%;
 }
 
 .countdown {
@@ -486,9 +578,9 @@ section {
 }
 
 .handwritten {
-  font-family: var(--brush-zh);
-  font-size: 46px;
-  line-height: 1.5;
+  font-family: var(--scrawl-zh);
+  font-size: 50px;
+  line-height: 1.4;
   color: var(--red);
   margin: 28px 0 40px;
   transform: rotate(-2deg);
@@ -715,6 +807,26 @@ section {
   border-radius: 999px;
   font-size: 14px;
   letter-spacing: 1px;
+}
+
+.location__couple {
+  position: relative;
+  width: 250px;
+  margin: 48px auto 0;
+}
+
+.location__couple .doodle--couple {
+  width: 100%;
+  height: auto;
+  color: var(--ink);
+}
+
+.location__couple-flower {
+  position: absolute;
+  top: 30%;
+  left: -46px;
+  width: 38px;
+  height: 38px;
 }
 
 .location__ring {

@@ -2,11 +2,18 @@ import './style.css'
 import { content } from './content.js'
 import {
   doodleHeart,
+  doodleHeartSolid,
+  doodleHeartHatch,
   doodleBigHeart,
   doodleFlower,
-  doodleArrow,
+  doodleArrowUp,
+  doodleArrowDown,
   doodleRing,
   doodleSparkle,
+  doodleGarland,
+  doodleBouquet,
+  doodleCoupleCheer,
+  doodleCoupleBow,
 } from './assets/doodles.js'
 
 // ---------- 照片(依頁面出現順序) ----------
@@ -18,6 +25,7 @@ import photo5 from './assets/photos/05.jpg' // 插畫:拱門
 import photo6 from './assets/photos/06.jpg' // 插畫:長椅
 import photo7 from './assets/photos/07.jpg' // 頭紗特寫
 import photo8 from './assets/photos/08.jpg' // 兩張長椅:好久不見 婚禮見
+import photo9 from './assets/photos/09.jpg' // 紅禮服:不早不晚 剛好是你
 
 const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   content.venue.mapQuery,
@@ -69,7 +77,7 @@ document.querySelector('#app').innerHTML = `
         <p class="hero__married-zh">結婚啦</p>
         <p class="hero__caption">We are married</p>
       </div>
-      <div class="hero__doodle-arrow">${doodleArrow}</div>
+      <div class="hero__doodle-arrow">${doodleArrowUp}</div>
     </div>
   </section>
 
@@ -88,6 +96,15 @@ document.querySelector('#app').innerHTML = `
       </div>
     </div>
     <div class="intro__ring">${doodleRing}</div>
+  </section>
+
+  <section class="reddress reveal">
+    <div class="photo-frame-wrap">
+      <div class="story-item__doodle story-item__doodle--br">${doodleFlower}</div>
+      ${photoFrame(photo9, '紅禮服合照')}
+    </div>
+    <p class="handwritten">不早不晚<br /><span class="handwritten__indent">剛好是你</span></p>
+    <div class="reddress__couple">${doodleCoupleCheer}</div>
     <p class="signature-banner">— ${content.groom} &amp; ${content.bride}</p>
   </section>
 
@@ -95,6 +112,7 @@ document.querySelector('#app').innerHTML = `
     <div class="heart-photo__wrap">
       ${photoFrame(photo2, '林間合照')}
       <div class="heart-photo__overlay">${doodleBigHeart}</div>
+      <div class="heart-photo__garland">${doodleGarland}</div>
     </div>
     <div class="heart-photo__lines">
       ${content.heartLines.map((l) => `<p>${l}</p>`).join('')}
@@ -107,12 +125,15 @@ document.querySelector('#app').innerHTML = `
     </div>
     <div class="photo-frame-wrap">
       <div class="story-item__doodle story-item__doodle--tl">${doodleFlower}</div>
+      <div class="arch__heart-solid">${doodleHeartSolid}</div>
       <div class="story-item__loveyou">LOVE&nbsp;&nbsp;YOU</div>
+      <div class="arch__bouquet">${doodleBouquet}</div>
       ${photoFrame(photo3, '拱窗合照')}
     </div>
     <div class="love-doodle">
       <span class="love-doodle__text">LOVE</span>
-      <span class="love-doodle__hearts">${doodleHeart}${doodleHeart}</span>
+      <span class="love-doodle__small-hearts">${doodleHeart}${doodleHeart}${doodleHeart}</span>
+      <span class="love-doodle__hearts">${doodleHeartHatch}${doodleHeartHatch}</span>
     </div>
   </section>
 
@@ -135,7 +156,7 @@ document.querySelector('#app').innerHTML = `
         )
         .join('')}
     </div>
-    <div class="bullets__arrow">${doodleArrow}</div>
+    <div class="bullets__arrow">${doodleArrowDown}</div>
     <div class="countdown" id="countdown">
       ${['days', 'hours', 'minutes', 'seconds']
         .map(
@@ -205,6 +226,10 @@ document.querySelector('#app').innerHTML = `
         </div>
       </div>
       <a class="location__link" href="${mapUrl}" target="_blank" rel="noopener">在 Google 地圖開啟</a>
+    </div>
+    <div class="location__couple">
+      <div class="location__couple-flower">${doodleFlower}</div>
+      ${doodleCoupleBow}
     </div>
     <div class="location__ring">${doodleRing}</div>
   </section>
