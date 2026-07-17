@@ -91,72 +91,158 @@ export const doodleGarland = `
   <circle pathLength="1" cx="212" cy="28" r="6" stroke="currentColor" stroke-width="2.5"/>
 </svg>`
 
-// 自己畫的線繪卡通新人:新郎捧花+新娘舉手歡呼
+// 照原版婚卡描的實色插畫:新郎捧花眨眼+新娘雙手比 OK
+// (doodle--illust:不做描邊動畫,整張淡入)
 export const doodleCoupleCheer = `
-<svg viewBox="0 0 220 190" class="doodle doodle--couple" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle pathLength="1" cx="66" cy="48" r="21" stroke="currentColor" stroke-width="2.6"/>
-  <path pathLength="1" d="M46 42 C44 24 62 16 72 20 C84 22 90 32 86 42 C82 32 70 28 62 32 C54 34 48 38 46 42 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-  <path pathLength="1" d="M56 50 q3.5 3.5 7 0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-  <circle pathLength="1" cx="76" cy="49" r="2" fill="currentColor" stroke="currentColor" stroke-width="1"/>
-  <path pathLength="1" d="M62 58 Q67 63 73 58" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-  <path pathLength="1" d="M60 74 l6 5 6-5 -2 8 h-8 z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-  <path pathLength="1" d="M42 132 L44 92 C44 80 52 72 66 72 C80 72 88 80 88 92 L90 132 Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
-  <path pathLength="1" d="M66 72 L58 88 L66 104 M66 72 L74 88 L66 104" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-  <path pathLength="1" d="M44 94 C36 102 32 112 34 122 C38 124 42 122 44 118" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-  <path pathLength="1" d="M88 94 C96 100 102 106 105 112" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-  <circle pathLength="1" cx="110" cy="120" r="5" stroke="currentColor" stroke-width="2"/>
-  <circle pathLength="1" cx="120" cy="115" r="5.5" stroke="currentColor" stroke-width="2"/>
-  <circle pathLength="1" cx="116" cy="127" r="5" stroke="currentColor" stroke-width="2"/>
-  <circle pathLength="1" cx="126" cy="123" r="4.5" stroke="currentColor" stroke-width="2"/>
-  <circle pathLength="1" cx="122" cy="133" r="4" stroke="currentColor" stroke-width="2"/>
-  <path pathLength="1" d="M112 136 L106 152 M120 138 L118 152 M128 130 L130 148" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  <circle pathLength="1" cx="154" cy="52" r="20" stroke="currentColor" stroke-width="2.6"/>
-  <path pathLength="1" d="M136 44 C134 30 148 22 158 24 C168 26 174 34 172 44 C168 34 158 30 150 33 C144 35 138 39 136 44 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-  <path pathLength="1" d="M134 46 C128 58 128 70 132 80 M172 46 C178 58 178 70 174 80" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-  <path pathLength="1" d="M146 24 C140 16 150 10 153 17 C156 10 166 14 160 22" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-  <circle pathLength="1" cx="147" cy="52" r="2" fill="currentColor" stroke="currentColor" stroke-width="1"/>
-  <circle pathLength="1" cx="161" cy="52" r="2" fill="currentColor" stroke="currentColor" stroke-width="1"/>
-  <path pathLength="1" d="M150 60 Q154 65 158 60" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-  <path pathLength="1" d="M140 76 C132 70 126 62 124 52" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-  <path pathLength="1" d="M124 52 l-7-3 M124 52 l-4-7 M124 52 l2-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  <path pathLength="1" d="M168 76 C176 70 182 62 184 52" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-  <path pathLength="1" d="M184 52 l7-3 M184 52 l4-7 M184 52 l-2-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  <path pathLength="1" d="M142 78 C140 92 132 114 122 134 L186 134 C176 114 168 92 166 78 C159 84 149 84 142 78 Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
-  <path pathLength="1" d="M146 80 Q154 88 162 80" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  <path pathLength="1" d="M24 34 l2.5 6 6 1-4.5 4.5 1 6-5-3.5-5 3.5 1-6-4.5-4.5 6-1z" stroke="#f0b429" stroke-width="2" stroke-linejoin="round"/>
-  <path pathLength="1" d="M198 88 l2.5 6 6 1-4.5 4.5 1 6-5-3.5-5 3.5 1-6-4.5-4.5 6-1z" stroke="#f0b429" stroke-width="2" stroke-linejoin="round"/>
+<svg viewBox="0 0 220 200" class="doodle doodle--couple doodle--illust" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M40 152 L40 106 C40 95 49 88 60 88 L72 88 C83 88 92 95 92 106 L92 152 Z" fill="#3f3d42" stroke="#2b2930" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M55 89 C58 98 62 104 66 108 C70 104 74 98 77 89 C70 92 62 92 55 89 Z" fill="#ffffff" stroke="#2b2930" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M55 89 L63 100 L60 107 M77 89 L69 100 L72 107" stroke="#2b2930" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M66 92 L57 87 L57 97 Z M66 92 L75 87 L75 97 Z" fill="#2b2930" stroke="#2b2930" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle cx="66" cy="92" r="2.2" fill="#2b2930"/>
+  <path d="M88 100 C92 92 90 84 87 78" stroke="#3f3d42" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="46" cy="62" r="3.2" fill="#ffe0c7" stroke="#2f2a28" stroke-width="1.6"/>
+  <circle cx="86" cy="62" r="3.2" fill="#ffe0c7" stroke="#2f2a28" stroke-width="1.6"/>
+  <ellipse cx="66" cy="60" rx="19" ry="20" fill="#ffe0c7" stroke="#2f2a28" stroke-width="2"/>
+  <path d="M48 50 C46 31 55 24 66 24 C77 24 86 31 84 50 C80 39 74 35 66 35 C58 35 52 39 48 50 Z" fill="#332e2b" stroke="#2f2a28" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M54 51 Q58 48 62 50 M70 50 Q74 48 78 51" stroke="#2f2a28" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M54 58 Q58 61 62 58" stroke="#2f2a28" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="75" cy="58" r="2.1" fill="#2f2a28"/>
+  <path d="M60 68 Q66 73 72 68" stroke="#2f2a28" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="52" cy="66" rx="3" ry="1.8" fill="#f5b3a6" opacity="0.85"/>
+  <ellipse cx="80" cy="66" rx="3" ry="1.8" fill="#f5b3a6" opacity="0.85"/>
+  <circle cx="86" cy="73" r="4.5" fill="#ffe0c7" stroke="#2f2a28" stroke-width="1.8"/>
+  <path d="M85.5 69 L89.5 60.5" stroke="#2f2a28" stroke-width="4.6" stroke-linecap="round"/>
+  <path d="M85.5 69 L89.5 60.5" stroke="#ffe0c7" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M42 112 C54 124 68 130 82 129" stroke="#3f3d42" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="81" cy="128" r="3.4" fill="#ffffff" stroke="#2b2930" stroke-width="1.4"/>
+  <circle cx="86" cy="128" r="4" fill="#ffe0c7" stroke="#2f2a28" stroke-width="1.8"/>
+  <path d="M76 128 C84 132 100 132 108 127 L97 160 C93 164 87 164 84 160 Z" fill="#ffffff" stroke="#9c968f" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M92 131 L90 159" stroke="#d9d4ce" stroke-width="1.5"/>
+  <path d="M72 116 C64 110 60 100 64 92 C72 96 76 106 74 116 Z" fill="#7f915f" stroke="#66774a" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M108 114 C116 108 120 98 116 90 C108 94 104 104 106 114 Z" fill="#7f915f" stroke="#66774a" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M70 124 C62 126 56 124 54 118 C60 114 68 117 70 124 Z" fill="#7f915f" stroke="#66774a" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle cx="78" cy="112" r="5" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.6"/>
+  <circle cx="90" cy="105" r="5" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.6"/>
+  <circle cx="102" cy="110" r="5" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.6"/>
+  <circle cx="84" cy="121" r="5" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.6"/>
+  <circle cx="97" cy="119" r="5" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.6"/>
+  <circle cx="71" cy="105" r="2.6" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.4"/>
+  <circle cx="108" cy="102" r="2.6" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.4"/>
+  <circle cx="92" cy="97" r="2.6" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.4"/>
+  <circle cx="78" cy="112" r="1.4" fill="#6e6862"/>
+  <circle cx="90" cy="105" r="1.4" fill="#6e6862"/>
+  <circle cx="102" cy="110" r="1.4" fill="#6e6862"/>
+  <circle cx="84" cy="121" r="1.4" fill="#6e6862"/>
+  <circle cx="97" cy="119" r="1.4" fill="#6e6862"/>
+  <path d="M150 32 C136 32 128 43 129 58 C129 66 130 72 132 77 L168 77 C170 72 171 66 171 58 C172 43 164 32 150 32 Z" fill="#332e2b" stroke="#2f2a28" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M133 95 C140 90 160 90 167 95 L170 116 C176 138 178 152 176 162 L124 162 C122 152 124 138 130 116 Z" fill="#ffffff" stroke="#8f8a84" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M133 95 C142 99 158 99 167 95" stroke="#d9d4ce" stroke-width="1.5"/>
+  <path d="M143 122 L140 158 M157 122 L160 158" stroke="#d9d4ce" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M147 78 h6 v12 h-6 z" fill="#ffe0c7"/>
+  <path d="M129 58 C122 68 119 80 121 92 C116 106 118 118 124 128 C128 134 134 132 133 125 C129 114 129 102 131 92 C127 82 127 66 130 60 Z" fill="#332e2b" stroke="#2f2a28" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M171 58 C178 68 181 80 179 92 C184 106 182 118 176 128 C172 134 166 132 167 125 C171 114 171 102 169 92 C173 82 173 66 170 60 Z" fill="#332e2b" stroke="#2f2a28" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="133" cy="66" r="3" fill="#ffe0c7" stroke="#2f2a28" stroke-width="1.5"/>
+  <circle cx="167" cy="66" r="3" fill="#ffe0c7" stroke="#2f2a28" stroke-width="1.5"/>
+  <circle cx="136" cy="94" r="7" fill="#ffffff" stroke="#8f8a84" stroke-width="1.8"/>
+  <circle cx="164" cy="94" r="7" fill="#ffffff" stroke="#8f8a84" stroke-width="1.8"/>
+  <path d="M136 94 C128 86 120 76 114 64" stroke="#2f2a28" stroke-width="6.5" stroke-linecap="round"/>
+  <path d="M136 94 C128 86 120 76 114 64" stroke="#ffe0c7" stroke-width="4.2" stroke-linecap="round"/>
+  <path d="M164 94 C172 86 180 76 186 64" stroke="#2f2a28" stroke-width="6.5" stroke-linecap="round"/>
+  <path d="M164 94 C172 86 180 76 186 64" stroke="#ffe0c7" stroke-width="4.2" stroke-linecap="round"/>
+  <ellipse cx="150" cy="64" rx="17" ry="18" fill="#ffe0c7" stroke="#2f2a28" stroke-width="2"/>
+  <path d="M134 62 C132 44 140 37 150 37 C160 37 168 44 166 62 C164 50 158 45 150 45 C142 45 136 50 134 62 Z" fill="#332e2b" stroke="#2f2a28" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M156 30 C146 28 144 18 152 18 C158 18 158 26 156 30 Z" fill="#ffffff" stroke="#8f8a84" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M160 30 C170 28 172 18 164 18 C158 18 158 26 160 30 Z" fill="#ffffff" stroke="#8f8a84" stroke-width="1.6" stroke-linejoin="round"/>
+  <circle cx="158" cy="28" r="3" fill="#ffffff" stroke="#8f8a84" stroke-width="1.6"/>
+  <path d="M139 56 Q143 53 147 55 M153 55 Q157 53 161 56" stroke="#2f2a28" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="143" cy="62" r="2.1" fill="#2f2a28"/>
+  <circle cx="157" cy="62" r="2.1" fill="#2f2a28"/>
+  <path d="M144 71 Q150 80 156 71 Q150 74 144 71 Z" fill="#b35f52" stroke="#2f2a28" stroke-width="1.5" stroke-linejoin="round"/>
+  <ellipse cx="137" cy="68" rx="3" ry="1.8" fill="#f5b3a6" opacity="0.85"/>
+  <ellipse cx="163" cy="68" rx="3" ry="1.8" fill="#f5b3a6" opacity="0.85"/>
+  <path d="M108 51 L105 43 M112 50 L111 42 M116 51 L118 43" stroke="#2f2a28" stroke-width="3.8" stroke-linecap="round"/>
+  <path d="M108 51 L105 43 M112 50 L111 42 M116 51 L118 43" stroke="#ffe0c7" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="112" cy="56" r="4.5" fill="#ffe0c7" stroke="#2f2a28" stroke-width="1.8"/>
+  <circle cx="115" cy="62" r="3.2" fill="#ffe0c7" stroke="#2f2a28" stroke-width="1.8"/>
+  <path d="M192 51 L195 43 M188 50 L189 42 M184 51 L182 43" stroke="#2f2a28" stroke-width="3.8" stroke-linecap="round"/>
+  <path d="M192 51 L195 43 M188 50 L189 42 M184 51 L182 43" stroke="#ffe0c7" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="188" cy="56" r="4.5" fill="#ffe0c7" stroke="#2f2a28" stroke-width="1.8"/>
+  <circle cx="185" cy="62" r="3.2" fill="#ffe0c7" stroke="#2f2a28" stroke-width="1.8"/>
+  <path d="M22 34 l2.5 6 6 1-4.5 4.5 1 6-5-3.5-5 3.5 1-6-4.5-4.5 6-1z" fill="#f5c84c" stroke="#e0a92e" stroke-width="1" stroke-linejoin="round"/>
+  <path d="M202 100 l2.5 6 6 1-4.5 4.5 1 6-5-3.5-5 3.5 1-6-4.5-4.5 6-1z" fill="#f5c84c" stroke="#e0a92e" stroke-width="1" stroke-linejoin="round"/>
 </svg>`
 
-// 自己畫的線繪卡通新人:互相牽手高舉、鞠躬謝禮
+// 照原版婚卡描的實色插畫:新人牽手高舉、鞠躬謝禮,四周金星星+月亮
 export const doodleCoupleBow = `
-<svg viewBox="0 0 220 170" class="doodle doodle--couple" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle pathLength="1" cx="110" cy="20" r="6" stroke="currentColor" stroke-width="2.4"/>
-  <path pathLength="1" d="M104 22 C94 34 86 48 82 62 M116 22 C126 34 134 48 138 62" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
-  <circle pathLength="1" cx="86" cy="80" r="17" stroke="currentColor" stroke-width="2.6"/>
-  <path pathLength="1" d="M74 68 C68 60 78 52 84 58 C86 50 98 54 94 64" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-  <path pathLength="1" d="M70 78 C60 84 52 94 50 106" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-  <path pathLength="1" d="M74 94 C60 100 50 112 48 128 C62 140 92 142 106 132 C108 116 100 102 88 96" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
-  <path pathLength="1" d="M62 136 L58 152 M92 138 L94 152" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-  <circle pathLength="1" cx="140" cy="82" r="17" stroke="currentColor" stroke-width="2.6"/>
-  <path pathLength="1" d="M126 74 C124 60 140 52 150 56 C158 58 162 66 158 74 C152 66 138 64 132 70 C128 72 127 73 126 74 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-  <path pathLength="1" d="M138 98 C130 108 126 120 128 132 M152 94 C158 104 162 116 160 128" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
-  <path pathLength="1" d="M128 132 C138 138 152 136 160 128" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
-  <path pathLength="1" d="M132 134 L128 150 M156 132 L160 148" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-  <path pathLength="1" d="M60 46 l2 5 5 1-4 4 1 5-4-3-4 3 1-5-4-4 5-1z" stroke="#f0b429" stroke-width="2" stroke-linejoin="round"/>
-  <path pathLength="1" d="M158 40 l2 5 5 1-4 4 1 5-4-3-4 3 1-5-4-4 5-1z" stroke="#f0b429" stroke-width="2" stroke-linejoin="round"/>
-  <path pathLength="1" d="M184 92 a10 10 0 1 0 4 14 a8 8 0 1 1-4-14z" stroke="#f0b429" stroke-width="2" stroke-linejoin="round"/>
-  <path pathLength="1" d="M104 152 l1.5 4 4 .8-3 3 .7 4-3.2-2.3-3.2 2.3 .7-4-3-3 4-.8z" stroke="#f0b429" stroke-width="2" stroke-linejoin="round"/>
-  <path pathLength="1" d="M36 118 l1.5 4 4 .8-3 3 .7 4-3.2-2.3-3.2 2.3 .7-4-3-3 4-.8z" stroke="#f0b429" stroke-width="2" stroke-linejoin="round"/>
+<svg viewBox="0 0 220 170" class="doodle doodle--couple doodle--illust" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M58 142 L54 156 M72 144 L71 158" stroke="#2f2a28" stroke-width="4.6" stroke-linecap="round"/>
+  <path d="M58 142 L54 156 M72 144 L71 158" stroke="#ffe0c7" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M46 158 q4 -7 10 -3 l2 6 l-12 0 z" fill="#ffffff" stroke="#8f8a84" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M64 160 q4 -7 10 -3 l2 6 l-12 0 z" fill="#ffffff" stroke="#8f8a84" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M88 86 C72 78 52 82 42 96 C33 109 33 128 42 140 C58 150 80 146 90 132 C96 116 94 96 88 86 Z" fill="#ffffff" stroke="#8f8a84" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M45 136 C60 144 78 141 88 130" stroke="#d9d4ce" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M102 68 C86 66 66 76 52 94 C64 96 84 90 100 80 Z" fill="#f6f3f0" stroke="#d9d4ce" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M84 88 C88 80 96 76 102 80 C104 86 100 94 92 96 Z" fill="#ffffff" stroke="#8f8a84" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M88 84 C80 66 70 46 62 24" stroke="#8f8a84" stroke-width="8.5" stroke-linecap="round"/>
+  <path d="M88 84 C80 66 70 46 62 24" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  <path d="M96 80 C102 62 106 44 111 26" stroke="#8f8a84" stroke-width="8.5" stroke-linecap="round"/>
+  <path d="M96 80 C102 62 106 44 111 26" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="61" cy="20" r="5.5" fill="#ffffff" stroke="#8f8a84" stroke-width="1.8"/>
+  <circle cx="112" cy="23" r="5.5" fill="#ffffff" stroke="#8f8a84" stroke-width="1.8"/>
+  <circle cx="105" cy="84" r="15" fill="#332e2b" stroke="#2f2a28" stroke-width="2"/>
+  <circle cx="113" cy="67" r="7.5" fill="#332e2b" stroke="#2f2a28" stroke-width="2"/>
+  <path d="M109 61 l1.5 -5 2.5 3.2 2.5 -3.2 1.5 5 z" fill="#ffffff" stroke="#8f8a84" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M168 88 C166 104 161 118 157 130" stroke="#38322e" stroke-width="11" stroke-linecap="round"/>
+  <path d="M182 84 C183 104 180 120 178 134" stroke="#38322e" stroke-width="11" stroke-linecap="round"/>
+  <path d="M149 130 q5 -7 12 -3 l2.5 8 l-14.5 1 z" fill="#2f3a55" stroke="#232c42" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M170 134 q5 -7 12 -3 l2.5 8 l-14.5 1 z" fill="#2f3a55" stroke="#232c42" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M134 80 C146 58 164 46 178 47 C191 48 197 59 192 72 C186 90 169 101 152 105 C139 108 130 96 134 80 Z" fill="#38322e" stroke="#262019" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M138 90 C142 85 148 83 154 86 L149 98 C143 98 139 95 138 90 Z" fill="#ffffff" stroke="#8f8a84" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle cx="134" cy="103" r="14.5" fill="#332e2b" stroke="#2f2a28" stroke-width="2"/>
+  <path d="M136 86 C130 66 124 44 116 28" stroke="#38322e" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="116" cy="26" r="5" fill="#ffe0c7" stroke="#2f2a28" stroke-width="1.6"/>
+  <path d="M178 58 C184 46 188 34 191 22" stroke="#38322e" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="192" cy="19" r="5" fill="#ffe0c7" stroke="#2f2a28" stroke-width="1.6"/>
+  <path d="M109 12 L109 5 M99 15 L94 9 M119 15 L124 9" stroke="#f0b429" stroke-width="2" stroke-linecap="round"/>
+  <path transform="translate(50 118) scale(6) rotate(12)" d="M0 -1 L0.224 -0.309 L0.951 -0.309 L0.363 0.118 L0.588 0.809 L0 0.382 L-0.588 0.809 L-0.363 0.118 L-0.951 -0.309 L-0.224 -0.309 Z" fill="#f5c84c" stroke="#e0a92e" stroke-width="0.18" stroke-linejoin="round"/>
+  <path transform="translate(108 148) scale(9) rotate(-8)" d="M0 -1 L0.224 -0.309 L0.951 -0.309 L0.363 0.118 L0.588 0.809 L0 0.382 L-0.588 0.809 L-0.363 0.118 L-0.951 -0.309 L-0.224 -0.309 Z" fill="#f5c84c" stroke="#e0a92e" stroke-width="0.14" stroke-linejoin="round"/>
+  <path transform="translate(163 62) scale(7) rotate(18)" d="M0 -1 L0.224 -0.309 L0.951 -0.309 L0.363 0.118 L0.588 0.809 L0 0.382 L-0.588 0.809 L-0.363 0.118 L-0.951 -0.309 L-0.224 -0.309 Z" fill="#f5c84c" stroke="#e0a92e" stroke-width="0.16" stroke-linejoin="round"/>
+  <path transform="translate(86 58) scale(3.5)" d="M0 -1 L0.224 -0.309 L0.951 -0.309 L0.363 0.118 L0.588 0.809 L0 0.382 L-0.588 0.809 L-0.363 0.118 L-0.951 -0.309 L-0.224 -0.309 Z" fill="#f5c84c" stroke="#e0a92e" stroke-width="0.24" stroke-linejoin="round"/>
+  <path transform="translate(203 138) scale(4) rotate(20)" d="M0 -1 L0.224 -0.309 L0.951 -0.309 L0.363 0.118 L0.588 0.809 L0 0.382 L-0.588 0.809 L-0.363 0.118 L-0.951 -0.309 L-0.224 -0.309 Z" fill="#f5c84c" stroke="#e0a92e" stroke-width="0.22" stroke-linejoin="round"/>
+  <path d="M198 96 a11 11 0 1 0 10 17 a8.5 8.5 0 1 1 -10 -17 z" fill="#f5c84c" stroke="#e0a92e" stroke-width="1" stroke-linejoin="round"/>
 </svg>`
 
-// 線繪捧花(拱窗照片右下角)
+// 照原版婚卡風格的實色捧花:白色小花+綠葉+白紙包裝(拱窗照片右下角)
 export const doodleBouquet = `
-<svg viewBox="0 0 140 170" class="doodle doodle--bouquet" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path pathLength="1" d="M46 44 C38 30 48 16 62 18 C64 8 80 6 86 16 C98 10 112 20 108 32 C120 36 120 52 108 58 C112 70 98 80 88 74 C82 84 66 84 60 74 C46 78 36 64 44 54 C38 52 40 46 46 44 Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-  <path pathLength="1" d="M64 34 C60 40 64 48 72 48 C80 48 84 40 78 34 C74 30 68 30 64 34 Z M72 48 C70 54 74 58 80 56" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  <path pathLength="1" d="M96 34 C92 38 94 46 100 46 C106 46 108 38 104 34 C101 31 99 31 96 34 Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  <path pathLength="1" d="M40 62 C28 66 20 76 22 86 C32 88 42 80 44 70" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-  <path pathLength="1" d="M60 80 L48 128 M72 82 L62 132 M84 78 L76 128 M96 72 L88 122" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  <path pathLength="1" d="M56 104 C48 98 40 100 38 108 C44 114 54 112 56 104 Z M56 104 C64 110 74 108 76 100" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-  <path pathLength="1" d="M52 128 C46 140 40 152 34 160 M64 132 C62 144 60 154 58 164 M76 128 C78 140 82 152 88 160" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+<svg viewBox="0 0 140 170" class="doodle doodle--bouquet doodle--illust" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M62 30 q-3 -10 5 -16 q7 6 0 16 z" fill="#7f915f" stroke="#66774a" stroke-width="1.4" stroke-linejoin="round"/>
+  <path d="M80 30 q3 -10 -5 -16 q-7 6 0 16 z" fill="#7f915f" stroke="#66774a" stroke-width="1.4" stroke-linejoin="round"/>
+  <path d="M42 60 C32 54 27 44 31 34 C41 38 46 50 44 60 Z" fill="#7f915f" stroke="#66774a" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M98 58 C108 52 113 42 109 32 C99 36 94 48 96 58 Z" fill="#7f915f" stroke="#66774a" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M42 76 C32 80 24 78 20 70 C28 64 38 68 42 76 Z" fill="#7f915f" stroke="#66774a" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M98 74 C108 78 116 76 120 68 C112 62 102 66 98 74 Z" fill="#7f915f" stroke="#66774a" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle cx="52" cy="52" r="7" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.8"/>
+  <circle cx="70" cy="42" r="7" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.8"/>
+  <circle cx="88" cy="52" r="7" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.8"/>
+  <circle cx="58" cy="68" r="7" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.8"/>
+  <circle cx="80" cy="68" r="7" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.8"/>
+  <circle cx="70" cy="58" r="6" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.8"/>
+  <circle cx="40" cy="48" r="3.2" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.5"/>
+  <circle cx="100" cy="46" r="3.2" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.5"/>
+  <circle cx="62" cy="32" r="3.2" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.5"/>
+  <circle cx="82" cy="32" r="3.2" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.5"/>
+  <circle cx="48" cy="78" r="3.2" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.5"/>
+  <circle cx="92" cy="78" r="3.2" fill="#fdfcf8" stroke="#8a847d" stroke-width="1.5"/>
+  <circle cx="52" cy="52" r="1.8" fill="#6e6862"/>
+  <circle cx="70" cy="42" r="1.8" fill="#6e6862"/>
+  <circle cx="88" cy="52" r="1.8" fill="#6e6862"/>
+  <circle cx="58" cy="68" r="1.8" fill="#6e6862"/>
+  <circle cx="80" cy="68" r="1.8" fill="#6e6862"/>
+  <circle cx="70" cy="58" r="1.6" fill="#6e6862"/>
+  <path d="M36 80 C48 88 92 88 104 80 L84 148 C78 154 62 154 56 148 Z" fill="#ffffff" stroke="#9c968f" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M36 80 C48 76 92 76 104 80" stroke="#d9d4ce" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M52 84 L62 146 M88 84 L78 146" stroke="#d9d4ce" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M70 106 c-2.5 -3.4 -6.6 -1.2 -6.6 1.8 c0 3 3.6 5.5 6.6 7.8 c3 -2.3 6.6 -4.8 6.6 -7.8 c0 -3 -4.1 -5.2 -6.6 -1.8 z" fill="currentColor"/>
+  <path d="M66 152 C62 158 60 162 56 166 M74 152 C77 158 79 162 82 166" stroke="#c9c4be" stroke-width="2" stroke-linecap="round"/>
 </svg>`
