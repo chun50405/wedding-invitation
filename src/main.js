@@ -11,9 +11,6 @@ import {
   doodleRing,
   doodleSparkle,
   doodleGarland,
-  doodleBouquet,
-  doodleCoupleCheer,
-  doodleCoupleBow,
 } from './assets/doodles.js'
 
 // ---------- 照片(依頁面出現順序) ----------
@@ -104,7 +101,6 @@ document.querySelector('#app').innerHTML = `
       ${photoFrame(photo9, '紅禮服合照')}
     </div>
     <p class="handwritten">不早不晚<br /><span class="handwritten__indent">剛好是你</span></p>
-    <div class="reddress__couple">${doodleCoupleCheer}</div>
     <p class="signature-banner">— ${content.groom} &amp; ${content.bride}</p>
   </section>
 
@@ -127,7 +123,6 @@ document.querySelector('#app').innerHTML = `
       <div class="story-item__doodle story-item__doodle--tl">${doodleFlower}</div>
       <div class="arch__heart-solid">${doodleHeartSolid}</div>
       <div class="story-item__loveyou">LOVE&nbsp;&nbsp;YOU</div>
-      <div class="arch__bouquet">${doodleBouquet}</div>
       ${photoFrame(photo3, '拱窗合照')}
     </div>
     <div class="love-doodle">
@@ -226,10 +221,6 @@ document.querySelector('#app').innerHTML = `
         </div>
       </div>
       <a class="location__link" href="${mapUrl}" target="_blank" rel="noopener">在 Google 地圖開啟</a>
-    </div>
-    <div class="location__couple">
-      <div class="location__couple-flower">${doodleFlower}</div>
-      ${doodleCoupleBow}
     </div>
     <div class="location__ring">${doodleRing}</div>
   </section>
